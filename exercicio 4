@@ -1,0 +1,21 @@
+# Exercício 04 – Contador de Vogais e Consoantes
+frase = input("Digite uma frase: ").lower()
+
+vogais = "aeiou"
+consoantes = "bcdfghjklmnpqrstvwxyz"
+
+total_vogais = 0
+total_consoantes = 0
+total_outros = 0
+
+for char in frase:
+    if char in vogais:
+        total_vogais += 1
+    elif char in consoantes:
+        total_consoantes += 1
+    else:
+        total_outros += 1
+
+print(f"\nVogais: {total_vogais}")
+print(f"Consoantes: {total_consoantes}")
+print(f"Outros (espaços, pontuação, etc.): {total_outros}")
