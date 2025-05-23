@@ -1,0 +1,50 @@
+# Exercício 02 – Lista de Tarefas (To-Do List)
+tarefas = []
+
+def adicionar_tarefa():
+    tarefa = input("Digite a nova tarefa: ")
+    tarefas.append({"tarefa": tarefa, "concluida": False})
+    print("Tarefa adicionada!")
+
+def ver_tarefas():
+    if not tarefas:
+        print("Nenhuma tarefa na lista.")
+    else:
+        for i, t in enumerate(tarefas):
+            status = "✔️" if t["concluida"] else "❌"
+            print(f"{i + 1}. {t['tarefa']} [{status}]")
+
+def remover_tarefa():
+    ver_tarefas()
+    indice = int(input("Digite o número da tarefa a remover: ")) - 1
+    if 0 <= indice < len(tarefas):
+        removida = tarefas.pop(indice)
+        print(f"Tarefa '{removida['tarefa']}' removida.")
+    else:
+        print("Índice inválido!")
+
+def marcar_concluida():
+    ver_tarefas()
+    indice = int(input("Digite o número da tarefa para marcar como concluída: ")) - 1
+    if 0 <= indice < len(tarefas):
+        tarefas[indice]["concluida"] = True
+        print("Tarefa marcada como concluída.")
+    else:
+        print("Índice inválido.")
+
+while True:
+    print("\nMenu:\n1. Adicionar Tarefa\n2. Ver Tarefas\n3. Remover Tarefa\n4. Marcar como Concluída\n5. Sair")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        adicionar_tarefa()
+    elif opcao == "2":
+        ver_tarefas()
+    elif opcao == "3":
+        remover_tarefa()
+    elif opcao == "4":
+        marcar_concluida()
+    elif opcao == "5":
+        break
+    else:
+        print("Opção inválida.")
